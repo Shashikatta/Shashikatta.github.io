@@ -54,7 +54,7 @@ export default function ContinueExploring({ profile }: { profile: ProfileId }) {
       <div className="mx-auto max-w-[1760px]">
         <div className="mb-3 flex items-baseline justify-between">
           <h2 className="text-lg font-semibold">Continue Exploring</h2>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted">Mission progress</p>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted">Continue exploring</p>
         </div>
         <div className="group/rail relative">
         <div ref={rail} className="cw-rail -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-3 pt-2 sm:-mx-0 sm:gap-4 sm:px-0">
@@ -86,7 +86,7 @@ export default function ContinueExploring({ profile }: { profile: ProfileId }) {
                     ▶
                   </span>
                   <span className="absolute inset-0 grid place-items-center">
-                    <span className="grid h-16 w-16 scale-75 place-items-center rounded-full bg-accent pl-1 text-xl text-white opacity-0 shadow-[0_0_40px_rgba(229,34,47,0.6)] transition duration-300 group-hover:scale-100 group-hover:opacity-100">
+                    <span className="grid h-16 w-16 scale-75 place-items-center rounded-full bg-accent pl-1 text-xl text-white opacity-0 shadow-[0_0_40px_rgba(var(--accent-rgb),0.6)] transition duration-300 group-hover:scale-100 group-hover:opacity-100">
                       ▶
                     </span>
                   </span>

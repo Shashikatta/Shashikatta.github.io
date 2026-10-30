@@ -45,7 +45,7 @@ export default function About() {
           <div className="scan-panel relative overflow-hidden rounded-2xl border border-line bg-panel/60 p-5 backdrop-blur sm:p-8">
             <p className="mb-4 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.35em] text-accent">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-              Mission briefing
+              About me
             </p>
             <p className="text-2xl font-semibold leading-snug sm:text-3xl">{about.lead}</p>
             {about.body.map((b) => (
@@ -56,7 +56,7 @@ export default function About() {
           </div>
         </Reveal>
         <Reveal>
-          <img src="/shashi-art.webp" alt="Illustrated portrait of Shashi at his editing desk" width={992} height={1586} loading="lazy" className="mx-auto w-full max-w-sm rounded-2xl border border-line object-cover shadow-[0_0_60px_-20px_rgba(229,34,47,0.5)]" />
+          <img src="/shashi-art.webp" alt="Illustrated portrait of Shashi at his editing desk" width={992} height={1586} loading="lazy" className="mx-auto w-full max-w-sm rounded-2xl border border-line object-cover shadow-[0_0_60px_-20px_rgba(var(--accent-rgb),0.5)]" />
         </Reveal>
       </div>
       <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">

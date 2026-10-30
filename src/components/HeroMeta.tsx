@@ -53,7 +53,7 @@ export default function HeroMeta() {
         <div className="relative h-1 flex-1 rounded-full bg-white/20">
           <div className="absolute inset-y-0 left-0 rounded-full bg-accent" style={{ width: `${t * 100}%` }} />
           <div
-            className="absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_10px_2px_rgba(229,34,47,0.8)]"
+            className="absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_10px_2px_rgba(var(--accent-rgb),0.8)]"
             style={{ left: `${t * 100}%` }}
           />
           {markers.map((m) => (

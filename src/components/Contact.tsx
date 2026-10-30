@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { person } from "../data/portfolio";
 import Reveal from "./Reveal";
 import ToBeContinued from "./ToBeContinued";
@@ -8,16 +8,8 @@ const links = [
   ["Call", `tel:${person.phone}`],
 ];
 
-const clock = () => new Date().toLocaleTimeString("en-GB", { timeZone: "Asia/Kolkata", hour: "2-digit", minute: "2-digit", second: "2-digit" });
-
 export default function Contact() {
-  const [time, setTime] = useState(clock);
   const [copied, setCopied] = useState(false);
-
-  useEffect(() => {
-    const id = setInterval(() => setTime(clock()), 1000);
-    return () => clearInterval(id);
-  }, []);
 
   const copy = () => {
     navigator.clipboard?.writeText(person.email).then(() => {
@@ -28,7 +20,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative overflow-hidden px-4 py-24 text-center sm:px-8">
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_50%_at_50%_60%,rgba(229,34,47,0.2),transparent_70%)]" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_50%_at_50%_60%,rgba(var(--accent-rgb),0.2),transparent_70%)]" />
       <Reveal>
         <p className="text-[11px] font-bold uppercase tracking-[0.5em] text-accent">Next episode</p>
         <ToBeContinued />
@@ -36,8 +28,7 @@ export default function Contact() {
 
         <div className="mx-auto mt-8 inline-flex items-center gap-3 rounded-full border border-line bg-panel/80 px-4 py-2 text-xs backdrop-blur">
           <span className="jp-live h-2 w-2 rounded-full bg-emerald-400" />
-          <span className="font-semibold uppercase tracking-[0.2em] text-muted">Open for missions</span>
-          <span className="font-mono text-white">T+{time} IST</span>
+          <span className="font-semibold uppercase tracking-[0.2em] text-muted">Open for projects</span>
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

@@ -61,8 +61,10 @@ export default function Nav({ profile, onSelect, onSwitch }: { profile: ProfileI
 
   return (
     <header className={`fixed inset-x-0 top-0 z-40 transition-colors ${solid ? "bg-ink/90 backdrop-blur" : "bg-gradient-to-b from-black/70 to-transparent"}`}>
+      <span aria-hidden className="absolute inset-x-0 bottom-0 h-[3px] [background-image:repeating-linear-gradient(135deg,rgb(var(--accent-rgb))_0_10px,rgb(var(--accent2-rgb))_10px_20px]" />
       <nav className="mx-auto flex max-w-[1760px] items-center gap-6 px-4 py-3 sm:px-8" aria-label="Main">
-        <a href="#top" onClick={go("top")} className="font-display text-3xl tracking-widest text-accent">
+        <a href="#top" onClick={go("top")} aria-label={person.name} className="flex items-center gap-3 font-display text-3xl tracking-widest text-accent">
+          <img src="/logo-sk-mark.webp" alt="" className="h-9 w-auto rounded-md bg-white px-1.5 py-0.5" />
           {person.series}
         </a>
         <ul className="hidden gap-5 text-sm md:flex">

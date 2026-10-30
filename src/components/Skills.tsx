@@ -54,7 +54,7 @@ export default function Skills({ profile }: { profile: ProfileId }) {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {ordered.map((g, i) => (
           <Reveal key={g.group} delay={(i % 3) * 0.06} className="h-full">
-            <article className="group relative h-full overflow-hidden rounded-xl border border-line bg-panel p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/70 hover:shadow-[0_12px_40px_-12px_rgba(229,34,47,0.45)]">
+            <article className="group relative h-full overflow-hidden rounded-xl border border-line bg-panel p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/70 hover:shadow-[0_12px_40px_-12px_rgba(var(--accent-rgb),0.45)]">
               <span className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-accent transition-transform duration-500 group-hover:scale-x-100" />
               <div className="flex items-start justify-between gap-3">
                 <div>

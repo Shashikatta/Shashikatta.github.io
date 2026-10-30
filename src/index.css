@@ -13,6 +13,21 @@
   --color-muted: #a1a1ad;
 }
 
+:root {
+  --accent-rgb: 229, 34, 47;
+  --accent2-rgb: 37, 99, 235;
+  --glow2-rgb: 37, 99, 235;
+  --bg-img: url(/bg/optimus.webp);
+}
+
+html[data-theme="bumblebee"] {
+  --color-accent: #f5b800;
+  --accent-rgb: 245, 184, 0;
+  --accent2-rgb: 0, 0, 0;
+  --glow2-rgb: 255, 214, 64;
+  --bg-img: url(/bg/bumblebee.webp);
+}
+
 html {
   background: var(--color-ink);
   color: #f4f4f6;
@@ -72,7 +87,7 @@ body {
 }
 
 .name-shimmer {
-  background: linear-gradient(100deg, #fff 20%, #e5222f 45%, #ff8a8a 55%, #fff 80%);
+  background: linear-gradient(100deg, #fff 20%, var(--color-accent) 45%, color-mix(in srgb, var(--color-accent) 55%, white) 55%, #fff 80%);
   background-size: 220% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -106,7 +121,7 @@ body {
   position: absolute;
   inset: 0 0 auto 0;
   height: 60px;
-  background: linear-gradient(to bottom, transparent, rgba(229, 34, 47, 0.12), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(var(--accent-rgb),0.12), transparent);
   animation: scan 6s linear infinite;
   pointer-events: none;
 }
@@ -143,8 +158,8 @@ body {
   scroll-snap-type: x mandatory;
 }
 .jp-episode:hover {
-  border-color: rgba(229, 34, 47, 0.6);
-  box-shadow: 0 12px 40px -12px rgba(229, 34, 47, 0.45);
+  border-color: rgba(var(--accent-rgb),0.6);
+  box-shadow: 0 12px 40px -12px rgba(var(--accent-rgb),0.45);
 }
 .jp-bar {
   transform-origin: left;
@@ -202,7 +217,7 @@ body {
   transition: -webkit-text-stroke-color 0.4s;
 }
 .group:hover .top-num {
-  -webkit-text-stroke-color: #e5222f;
+  -webkit-text-stroke-color: var(--color-accent);
 }
 
 /* continue */

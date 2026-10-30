@@ -179,7 +179,7 @@ export const seasons: Season[] = [
   },
   {
     name: "Prologue",
-    year: 2008,
+    year: 2011,
     role: "Advanced Diploma in Visual Effects",
     place: "Zee Institute of Creative Arts",
     period: "2011 – 2013",
@@ -209,11 +209,11 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Teasers",
-    kind: "Video",
-    pitch: "Short, punchy teaser videos that promote courses, webinars and expert talks, built to lift audience engagement.",
-    stack: ["Premiere Pro", "After Effects", "Motion graphics"],
-    hue: 355,
+    title: "AI Videos",
+    kind: "AI video",
+    pitch: "Story, promo and ad videos made with generative AI tools, directed and edited by hand.",
+    stack: ["Google Veo", "Kling", "Runway ML", "Midjourney", "ElevenLabs"],
+    hue: 190,
     featured: true,
   },
   {
@@ -223,6 +223,21 @@ export const projects: Project[] = [
     stack: ["Premiere Pro", "After Effects", "Audition"],
     hue: 28,
     featured: true,
+  },
+  {
+    title: "Teasers",
+    kind: "Video",
+    pitch: "Short, punchy teaser videos that promote courses, webinars and expert talks, built to lift audience engagement.",
+    stack: ["Premiere Pro", "After Effects", "Motion graphics"],
+    hue: 355,
+    featured: true,
+  },
+  {
+    title: "Long Form Videos",
+    kind: "Video",
+    pitch: "Recorded medical-education sessions edited into clean, watchable lectures.",
+    stack: ["Premiere Pro", "Audition", "Camtasia"],
+    hue: 140,
   },
   {
     title: "Conference Clips",
@@ -241,27 +256,12 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: "AI Videos",
-    kind: "AI video",
-    pitch: "Story, promo and ad videos made with generative AI tools, directed and edited by hand.",
-    stack: ["Google Veo", "Kling", "Runway ML", "Midjourney", "ElevenLabs"],
-    hue: 190,
-    featured: true,
-  },
-  {
     title: "Infographics & Creatives",
     kind: "Design",
     pitch: "Posters, social creatives, event graphics and brochures for campaigns and conferences.",
     stack: ["Photoshop", "Illustrator"],
     hue: 320,
     featured: true,
-  },
-  {
-    title: "CME Video Lectures",
-    kind: "Video",
-    pitch: "Recorded medical-education sessions edited into clean, watchable lectures.",
-    stack: ["Premiere Pro", "Audition", "Camtasia"],
-    hue: 140,
   },
   {
     title: "PPT Templates & Scripts",
@@ -397,3 +397,5 @@ export const workVideos: WorkVideo[] = [
   { title: "Podcast Episode 2", category: "Podcasts", youtube: "" },
   { title: "Podcast Episode 3", category: "Podcasts", youtube: "" },
 ];
+
+export const showreel = { title: "Watch the reel", youtube: "", poster: "" };

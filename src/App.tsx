@@ -9,10 +9,11 @@ import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import ContinueExploring from "./components/ContinueExploring";
 import About from "./components/About";
-import Journey from "./components/Journey";
 import Projects from "./components/Projects";
 import TopPicks from "./components/TopPicks";
 import Work from "./components/Work";
+import TimeMachine from "./components/TimeMachine";
+import Showreel from "./components/Showreel";
 import Skills from "./components/Skills";
 import Achievements from "./components/Achievements";
 import Resume from "./components/Resume";
@@ -24,8 +25,16 @@ function wantsIntro(): boolean {
   return !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
+const themes: Record<ProfileId, "optimus" | "bumblebee"> = { recruiter: "optimus", client: "bumblebee", developer: "optimus" };
+
 export default function App() {
   const [profile, setProfile] = useState<ProfileId | null>(null);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (profile) root.dataset.theme = themes[profile];
+    else delete root.dataset.theme;
+  }, [profile]);
 
   useEffect(() => {
     if (!profile) return;
@@ -59,7 +68,7 @@ export default function App() {
 
   const sections: Record<string, ReactElement> = {
     work: <Work key="work" />,
-    journey: <Journey key="journey" />,
+    journey: <TimeMachine key="journey" />,
     projects: (
       <div key="projects">
         <Projects profile={profile} />
@@ -78,6 +87,7 @@ export default function App() {
       <main>
         <Hero profile={profile} />
         <ContinueExploring profile={profile} />
+        <Showreel />
         <About />
         {profiles[profile].order.map((id) => sections[id])}
         <OffDuty />

@@ -79,7 +79,7 @@ export default function Orbit() {
       ))}
       <span
         ref={dot}
-        className="absolute h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_12px_3px_rgba(229,34,47,0.8)]"
+        className="absolute h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_12px_3px_rgba(var(--accent-rgb),0.8)]"
       />
       {pills.map((p, i) => (
         <span
@@ -91,7 +91,7 @@ export default function Orbit() {
         >
           <span
             className={`h-1.5 w-1.5 rounded-full ${
-              p.tone === "metric" ? "bg-accent shadow-[0_0_8px_2px_rgba(229,34,47,0.7)]" : "bg-cyan-300 shadow-[0_0_8px_2px_rgba(103,232,249,0.6)]"
+              p.tone === "metric" ? "bg-accent shadow-[0_0_8px_2px_rgba(var(--accent-rgb),0.7)]" : "bg-cyan-300 shadow-[0_0_8px_2px_rgba(103,232,249,0.6)]"
             }`}
           />
           {p.label}
