@@ -1,0 +1,250 @@
+@import "tailwindcss";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/bebas-neue/400.css";
+
+@theme {
+  --font-display: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --color-ink: #0b0b0f;
+  --color-panel: #15151b;
+  --color-line: #2a2a33;
+  --color-accent: #e5222f;
+  --color-muted: #a1a1ad;
+}
+
+html {
+  background: var(--color-ink);
+  color: #f4f4f6;
+  font-family: var(--font-sans);
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.rail {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line) transparent;
+}
+.rail > * {
+  scroll-snap-align: start;
+  flex: none;
+}
+
+:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin-slow,
+.spin-slow-rev {
+  transform-box: view-box;
+  transform-origin: center;
+  animation: spin 90s linear infinite;
+}
+.spin-slow-rev {
+  animation-direction: reverse;
+  animation-duration: 140s;
+}
+
+.name-shimmer {
+  background: linear-gradient(100deg, #fff 20%, #e5222f 45%, #ff8a8a 55%, #fff 80%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: name-shimmer 7s linear infinite;
+}
+
+@keyframes name-shimmer {
+  from { background-position: 120% 0; }
+  to { background-position: -120% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* sections-a */
+.sec-bar {
+  transform-origin: left;
+  animation: sec-bar 1.4s ease-out both;
+}
+@keyframes sec-bar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.scan-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, rgba(229, 34, 47, 0.12), transparent);
+  animation: scan 6s linear infinite;
+  pointer-events: none;
+}
+@keyframes scan {
+  from { transform: translateY(-80px); }
+  to { transform: translateY(520px); }
+}
+.marquee-track {
+  animation: marquee 45s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+.rail {
+  scrollbar-width: none;
+}
+.rail::-webkit-scrollbar {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .scan-panel::after, .sec-bar { animation: none !important; }
+}
+
+/* sections-b */
+.jp-outline {
+  color: rgba(224, 176, 74, 0.1);
+  -webkit-text-stroke: 1.5px #e0b04a;
+  text-shadow: 0 0 18px rgba(224, 176, 74, 0.35);
+}
+.jp-episodes {
+  scroll-snap-type: x mandatory;
+}
+.jp-episode:hover {
+  border-color: rgba(229, 34, 47, 0.6);
+  box-shadow: 0 12px 40px -12px rgba(229, 34, 47, 0.45);
+}
+.jp-bar {
+  transform-origin: left;
+  animation: jp-grow 0.9s ease-out both;
+}
+@keyframes jp-grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+.jp-preview {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.35s ease, opacity 0.35s ease;
+}
+.jp-preview > * {
+  overflow: hidden;
+  min-height: 0;
+}
+.jp-preview > :first-child {
+  margin-top: 0.5rem;
+}
+.jp-poster:hover .jp-preview,
+.jp-poster:focus-visible .jp-preview {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+@media (hover: none) {
+  .jp-preview {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+}
+.jp-live {
+  box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+  animation: jp-ping 1.8s ease-out infinite;
+}
+@keyframes jp-ping {
+  to {
+    box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .jp-bar,
+  .jp-live {
+    animation: none;
+  }
+}
+
+.top-num {
+  color: transparent;
+  -webkit-text-stroke: 3px rgba(224, 176, 74, 0.8);
+  text-shadow: 0 0 30px rgba(224, 176, 74, 0.25);
+  transition: -webkit-text-stroke-color 0.4s;
+}
+.group:hover .top-num {
+  -webkit-text-stroke-color: #e5222f;
+}
+
+/* continue */
+.cw-rail {
+  scrollbar-width: none;
+}
+.cw-rail::-webkit-scrollbar {
+  display: none;
+}
+.cw-card {
+  transition: transform 0.3s ease;
+}
+.cw-card:hover,
+.cw-card:focus-visible {
+  transform: translateY(-4px) scale(1.03);
+}
+@media (prefers-reduced-motion: reduce) {
+  .cw-card:hover,
+  .cw-card:focus-visible {
+    transform: none;
+  }
+}
+
+/* cursor */
+button,
+[role="button"],
+a[href],
+summary,
+select {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+.cursor-play {
+  cursor:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'><circle cx='22' cy='22' r='20' fill='%23e5222f' stroke='white' stroke-width='2'/><path d='M17 13l15 9-15 9z' fill='white'/></svg>") 22 22,
+    pointer;
+}
+.cw-card,
+.jp-poster,
+.jp-episode,
+[class*="hover:-translate-y"] {
+  cursor: pointer;
+}
